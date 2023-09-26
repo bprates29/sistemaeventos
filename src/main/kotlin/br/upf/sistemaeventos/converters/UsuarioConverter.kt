@@ -3,6 +3,7 @@ package br.upf.sistemaeventos.converters
 import br.upf.sistemaeventos.dtos.UsuarioDTO
 import br.upf.sistemaeventos.dtos.UsuarioResponseDTO
 import br.upf.sistemaeventos.model.Usuario
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Component
 
 @Component
@@ -12,7 +13,8 @@ class UsuarioConverter {
             id = usuario.id,
             nome = usuario.nome,
             cidade = usuario.cidade,
-            telefone = usuario.telefone
+            telefone = usuario.telefone,
+            email = usuario.email
         )
     }
 
@@ -20,7 +22,9 @@ class UsuarioConverter {
         return Usuario(
             nome = dto.nome,
             cidade = dto.cidade,
-            telefone = dto.telefone
+            telefone = dto.telefone,
+            email = dto.email,
+            senha = BCryptPasswordEncoder().encode(dto.senha)
         )
     }
 }
