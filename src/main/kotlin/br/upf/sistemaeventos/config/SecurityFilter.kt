@@ -15,7 +15,7 @@ import org.springframework.web.filter.OncePerRequestFilter
 class SecurityFilter(
     val tokenService: TokenService,
     val usuarioRepository: UsuarioRepository
-): OncePerRequestFilter {
+): OncePerRequestFilter() {
     override fun doFilterInternal(
         request: HttpServletRequest,
         response: HttpServletResponse,
@@ -36,6 +36,4 @@ class SecurityFilter(
         val authHeader = request.getHeader("Authorization")
         return authHeader?.replace("Bearer ", "")
     }
-
-
 }
