@@ -3,6 +3,7 @@ package br.upf.sistemaeventos.controller
 import br.upf.sistemaeventos.dtos.EventoDTO
 import br.upf.sistemaeventos.dtos.EventoResponseDTO
 import br.upf.sistemaeventos.service.EventoService
+import jakarta.transaction.Transactional
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -32,6 +33,7 @@ class EventoController(val service: EventoService) {
     }
 
     @PostMapping
+    @Transactional
     fun cadastra(@RequestBody @Valid dto: EventoDTO,
                  uriBuilder: UriComponentsBuilder
     ): ResponseEntity<EventoResponseDTO> {
@@ -42,6 +44,7 @@ class EventoController(val service: EventoService) {
     }
 
     @PutMapping("/{id}")
+    @Transactional
     fun atualizar(@PathVariable id: Long,
                   @RequestBody @Valid dto: EventoDTO
     ): EventoResponseDTO {
@@ -49,6 +52,7 @@ class EventoController(val service: EventoService) {
     }
 
     @DeleteMapping("/{id}")
+    @Transactional
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deletar(@PathVariable id: Long) {
         service.deletar(id)
