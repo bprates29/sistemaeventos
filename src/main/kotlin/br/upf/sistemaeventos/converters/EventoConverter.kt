@@ -11,8 +11,6 @@ class EventoConverter {
         return Evento(
             nome = dto.nome,
             data = dto.data,
-            dataInicioInsc = dto.dataInicioInsc,
-            dataFimInsc = dto.dataFimInsc,
             descricao = dto.descricao,
             status = dto.status,
             inscritos = listOf()
@@ -24,8 +22,6 @@ class EventoConverter {
             id = evento.id,
             nome = evento.nome,
             data = evento.data,
-            dataInicioInsc = evento.dataInicioInsc,
-            dataFimInsc = evento.dataFimInsc,
             descricao = evento.descricao,
             status = evento.status,
             inscritos = evento.inscritos

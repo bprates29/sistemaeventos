@@ -47,8 +47,6 @@ class EventoService(
             .copy(
                 nome = dto.nome,
                 data = dto.data,
-                dataInicioInsc = dto.dataInicioInsc,
-                dataFimInsc = dto.dataFimInsc,
                 descricao = dto.descricao,
                 status = dto.status
             )

@@ -8,7 +8,6 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.OneToMany
 import java.time.LocalDate
-import java.time.LocalDateTime
 
 @Entity
 data class Evento(
@@ -16,8 +15,6 @@ data class Evento(
     val id: Long? = null,
     val nome: String,
     val data: LocalDate,
-    val dataInicioInsc: LocalDateTime,
-    val dataFimInsc: LocalDateTime,
     val descricao: String,
     @Enumerated(value = EnumType.STRING)
     val status: StatusEvento,
